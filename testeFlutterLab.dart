@@ -112,8 +112,9 @@ class _FichaListPageState extends State<FichaListPage> {
     body: FutureBuilder<List<Ficha>>(
       future: fut,
       builder: (_, snap) {
-        if (snap.connectionState != ConnectionState.done)
+        if (snap.connectionState != ConnectionState.done) {
           return const Center(child: CircularProgressIndicator());
+        }
         final list = snap.data!;
         if (list.isEmpty) {
           return Center(
